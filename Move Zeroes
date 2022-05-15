@@ -1,0 +1,21 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        vector<int>na;
+        int zcount=0;
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]!=0)
+                na.push_back(nums[i]);
+            else
+                zcount++;
+        }
+        while(zcount>0){
+            na.push_back(0);
+            zcount--;
+        }
+        for(int i=0;i<nums.size();i++)
+            nums[i]=na[i];
+    
+        
+    }
+};
