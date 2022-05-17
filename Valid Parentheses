@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool isValid(string s) {
+        stack <int> pa;
+        for(int i=0;i<s.length();i++)
+        {
+            if(s[i]=='(' or s[i]=='{' or s[i]=='[')
+                pa.push(s[i]);
+        
+             else{
+                 
+                 if(pa.empty())
+                     return false;
+                 if(pa.top()=='(' and s[i]!=')')
+                     return false;
+                 if(pa.top()=='{' and s[i]!='}')
+                     return false;
+                 if(pa.top()=='[' and s[i]!=']')
+                     return false;
+                 pa.pop();
+                    
+                    
+                    }
+        }
+        if(pa.empty())
+            return true;
+        else 
+            return false;
+        
+    }
+};
