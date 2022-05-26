@@ -1,0 +1,30 @@
+class Solution {
+public:
+    void backtrack (vector<string>& res, string& str, int n, int left, int right) {
+        if (left == n && right == n) { 
+            res.push_back(str);
+            return;
+        }
+        
+        if (left < n) { 
+            str.push_back('(');
+            backtrack(res, str, n, left + 1, right);
+            str.pop_back();
+        }
+        
+        if (right < left) { 
+            str.push_back(')');
+            backtrack(res, str, n, left, right + 1);
+            str.pop_back();
+        }
+    }
+    
+    vector<string> generateParenthesis(int n) {
+        vector<string> res;
+        backtrack (res, str, n, 0, 0);
+        return res;
+    }
+    
+private:
+    string str = "";
+};
