@@ -1,0 +1,22 @@
+class Solution {
+public:
+    string reverseWords(string s) {
+        stack<string>word;
+        string ans = "";
+
+        for (int i = 0;i < s.size();i++){
+            string temp = "";
+            while (i < s.length() and s[i] != ' '){
+                temp += s[i];
+                i++;
+            }
+            if (temp.length() != 0) word.push(temp);
+        }
+        while (!word.empty()){
+            if (word.size() == 1) ans += word.top();
+            else ans += word.top() + " ";
+            word.pop();
+        }
+        return ans;
+    }
+};
